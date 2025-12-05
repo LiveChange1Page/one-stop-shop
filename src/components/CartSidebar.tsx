@@ -2,17 +2,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Minus, Plus, Trash2, ShoppingBag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
+import { useLanguage, productTranslations } from '@/contexts/LanguageContext';
 import { useState } from 'react';
 import { CheckoutModal } from './CheckoutModal';
 
 export function CartSidebar() {
   const { items, isCartOpen, setIsCartOpen, updateQuantity, removeFromCart, totalPrice, totalItems } = useCart();
+  const { t, language } = useLanguage();
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('ru-RU', {
+    return new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: 'RUB',
+      currency: 'USD',
       minimumFractionDigits: 0,
     }).format(price);
   };
@@ -20,6 +22,17 @@ export function CartSidebar() {
   const handleCheckout = () => {
     setIsCartOpen(false);
     setIsCheckoutOpen(true);
+  };
+
+  const scrollToProducts = () => {
+    setIsCartOpen(false);
+    document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const getItemName = (item: typeof items[0]) => {
+    const productKey = item.id as keyof typeof productTranslations;
+    const translations = productTranslations[productKey];
+    return translations?.name[language] || item.name;
   };
 
   return (
@@ -49,7 +62,7 @@ export function CartSidebar() {
                 <div className="flex items-center gap-3">
                   <ShoppingBag className="h-6 w-6 text-primary" />
                   <h2 className="font-serif text-2xl font-bold text-foreground">
-                    Корзина
+                    {t('cart.title')}
                   </h2>
                   {totalItems > 0 && (
                     <span className="px-2.5 py-0.5 bg-primary text-primary-foreground text-sm font-semibold rounded-full">
@@ -71,11 +84,14 @@ export function CartSidebar() {
                   <div className="flex flex-col items-center justify-center h-full text-center">
                     <ShoppingBag className="h-16 w-16 text-muted-foreground/30 mb-4" />
                     <p className="text-lg font-medium text-foreground mb-2">
-                      Корзина пуста
+                      {t('cart.empty')}
                     </p>
-                    <p className="text-muted-foreground">
-                      Добавьте товары для оформления заказа
+                    <p className="text-muted-foreground mb-4">
+                      {t('cart.emptySubtitle')}
                     </p>
+                    <Button variant="outline" onClick={scrollToProducts}>
+                      {t('cart.viewProducts')}
+                    </Button>
                   </div>
                 ) : (
                   <div className="space-y-4">
@@ -91,13 +107,13 @@ export function CartSidebar() {
                         <div className="w-20 h-20 rounded-lg overflow-hidden bg-secondary flex-shrink-0">
                           <img
                             src={item.image}
-                            alt={item.name}
+                            alt={getItemName(item)}
                             className="w-full h-full object-cover"
                           />
                         </div>
                         <div className="flex-1 min-w-0">
                           <h4 className="font-medium text-foreground truncate">
-                            {item.name}
+                            {getItemName(item)}
                           </h4>
                           <p className="text-lg font-bold text-foreground mt-1">
                             {formatPrice(item.price)}
@@ -136,7 +152,7 @@ export function CartSidebar() {
               {items.length > 0 && (
                 <div className="p-6 border-t border-border bg-card">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-muted-foreground">Итого:</span>
+                    <span className="text-muted-foreground">{t('cart.total')}:</span>
                     <span className="text-2xl font-bold text-foreground">
                       {formatPrice(totalPrice)}
                     </span>
@@ -147,7 +163,7 @@ export function CartSidebar() {
                     className="w-full"
                     onClick={handleCheckout}
                   >
-                    Оформить заказ
+                    {t('cart.checkout')}
                   </Button>
                 </div>
               )}

@@ -3,10 +3,13 @@ import { ShoppingBag, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { LanguageSwitcher } from './LanguageSwitcher';
 import { cn } from '@/lib/utils';
 
 export function Header() {
   const { totalItems, setIsCartOpen } = useCart();
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -42,23 +45,25 @@ export function Header() {
             href="#products"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            Товары
+            {t('nav.products')}
           </a>
           <a
             href="#about"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            О нас
+            {t('nav.about')}
           </a>
           <a
             href="#contact"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            Контакты
+            {t('nav.contact')}
           </a>
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
+          <LanguageSwitcher />
+          
           <Button
             variant="ghost"
             size="icon"
@@ -106,21 +111,21 @@ export function Header() {
               className="text-lg font-medium text-foreground hover:text-primary transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Товары
+              {t('nav.products')}
             </a>
             <a
               href="#about"
               className="text-lg font-medium text-foreground hover:text-primary transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              О нас
+              {t('nav.about')}
             </a>
             <a
               href="#contact"
               className="text-lg font-medium text-foreground hover:text-primary transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Контакты
+              {t('nav.contact')}
             </a>
           </nav>
         </motion.div>
