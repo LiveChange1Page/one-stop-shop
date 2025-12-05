@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Instagram, Send, MessageCircle } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer id="contact" className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-16">
@@ -17,7 +20,7 @@ export function Footer() {
               Boutique
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              Премиальные цифровые продукты для тех, кто ценит качество и уникальность.
+              {t('footer.description')}
             </p>
           </motion.div>
 
@@ -28,26 +31,26 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="font-semibold text-foreground mb-4">Навигация</h4>
+            <h4 className="font-semibold text-foreground mb-4">{t('footer.navigation')}</h4>
             <ul className="space-y-3">
               <li>
                 <a href="#products" className="text-muted-foreground hover:text-primary transition-colors">
-                  Товары
+                  {t('nav.products')}
                 </a>
               </li>
               <li>
                 <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">
-                  О нас
+                  {t('nav.about')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Доставка
+                  {t('footer.delivery')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  FAQ
+                  {t('footer.faq')}
                 </a>
               </li>
             </ul>
@@ -60,21 +63,21 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="font-semibold text-foreground mb-4">Документы</h4>
+            <h4 className="font-semibold text-foreground mb-4">{t('footer.documents')}</h4>
             <ul className="space-y-3">
               <li>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Политика конфиденциальности
+                  {t('footer.privacy')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Договор оферты
+                  {t('footer.terms')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Возврат средств
+                  {t('footer.refund')}
                 </a>
               </li>
             </ul>
@@ -87,23 +90,23 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h4 className="font-semibold text-foreground mb-4">Контакты</h4>
+            <h4 className="font-semibold text-foreground mb-4">{t('footer.contacts')}</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary" />
-                <a href="mailto:hello@boutique.ru" className="hover:text-primary transition-colors">
-                  hello@boutique.ru
+                <a href="mailto:hello@boutique.com" className="hover:text-primary transition-colors">
+                  hello@boutique.com
                 </a>
               </li>
               <li className="flex items-center gap-3 text-muted-foreground">
                 <Phone className="h-4 w-4 text-primary" />
-                <a href="tel:+79991234567" className="hover:text-primary transition-colors">
-                  +7 (999) 123-45-67
+                <a href="tel:+14151234567" className="hover:text-primary transition-colors">
+                  +1 (415) 123-4567
                 </a>
               </li>
               <li className="flex items-center gap-3 text-muted-foreground">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span>Москва, Россия</span>
+                <span>San Francisco, CA</span>
               </li>
             </ul>
 
@@ -134,7 +137,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="border-t border-border mt-12 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Boutique. Все права защищены.
+            © {new Date().getFullYear()} Boutique. {t('footer.rights')}
           </p>
         </div>
       </div>

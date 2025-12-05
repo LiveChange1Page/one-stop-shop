@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Product } from '@/types/product';
 import { useCart } from '@/contexts/CartContext';
+import { useLanguage, productTranslations } from '@/contexts/LanguageContext';
 import { ProductModal } from './ProductModal';
 
 interface ProductCardProps {
@@ -13,15 +14,22 @@ interface ProductCardProps {
 
 export function ProductCard({ product, index }: ProductCardProps) {
   const { addToCart } = useCart();
+  const { language, t } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('ru-RU', {
+    return new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: 'RUB',
+      currency: 'USD',
       minimumFractionDigits: 0,
     }).format(price);
   };
+
+  // Get translated product name and description
+  const productKey = product.id as keyof typeof productTranslations;
+  const translations = productTranslations[productKey];
+  const productName = translations?.name[language] || product.name;
+  const productDescription = translations?.description[language] || product.description;
 
   return (
     <>
@@ -36,7 +44,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
         <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
           <img
             src={product.image}
-            alt={product.name}
+            alt={productName}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-500" />
@@ -56,26 +64,34 @@ export function ProductCard({ product, index }: ProductCardProps) {
         <div className="p-6">
           <div className="mb-4">
             <h3 className="font-serif text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-              {product.name}
+              {productName}
             </h3>
             <p className="text-sm text-muted-foreground line-clamp-2">
-              {product.description}
+              {productDescription}
             </p>
           </div>
 
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-2">
             <span className="text-2xl font-bold text-foreground">
               {formatPrice(product.price)}
             </span>
-            <Button
-              variant="default"
-              size="sm"
-              onClick={() => addToCart(product)}
-              className="group/btn"
-            >
-              <ShoppingCart className="h-4 w-4 mr-2 transition-transform group-hover/btn:scale-110" />
-              В корзину
-            </Button>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setIsModalOpen(true)}
+              >
+                {t('products.moreDetails')}
+              </Button>
+              <Button
+                variant="default"
+                size="sm"
+                onClick={() => addToCart(product)}
+                className="group/btn"
+              >
+                <ShoppingCart className="h-4 w-4 transition-transform group-hover/btn:scale-110" />
+              </Button>
+            </div>
           </div>
         </div>
       </motion.div>

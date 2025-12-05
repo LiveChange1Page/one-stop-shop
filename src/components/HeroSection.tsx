@@ -1,10 +1,17 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function HeroSection() {
+  const { t } = useLanguage();
+
   const scrollToProducts = () => {
     document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToAbout = () => {
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -34,7 +41,7 @@ export function HeroSection() {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-full text-sm font-medium text-secondary-foreground">
               <Sparkles className="h-4 w-4 text-primary" />
-              Эксклюзивная коллекция
+              {t('hero.badge')}
             </span>
           </motion.div>
 
@@ -44,9 +51,9 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 leading-[1.1]"
           >
-            Наши лучшие{' '}
-            <span className="text-gradient">продукты</span>{' '}
-            в одном месте
+            {t('hero.title1')}{' '}
+            <span className="text-gradient">{t('hero.title2')}</span>{' '}
+            {t('hero.title3')}
           </motion.h1>
 
           <motion.p
@@ -55,8 +62,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
           >
-            Откройте для себя тщательно отобранную коллекцию премиальных продуктов, 
-            созданных для тех, кто ценит качество и уникальность
+            {t('hero.subtitle')}
           </motion.p>
 
           <motion.div
@@ -70,11 +76,11 @@ export function HeroSection() {
               size="xl"
               onClick={scrollToProducts}
             >
-              Смотреть товары
+              {t('hero.viewProducts')}
               <ArrowDown className="h-5 w-5 ml-2" />
             </Button>
-            <Button variant="outline" size="xl">
-              Узнать больше
+            <Button variant="outline" size="xl" onClick={scrollToAbout}>
+              {t('hero.learnMore')}
             </Button>
           </motion.div>
         </div>
