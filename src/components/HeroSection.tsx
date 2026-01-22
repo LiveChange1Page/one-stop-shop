@@ -49,7 +49,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 leading-[1.1]"
+            className="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-4 sm:mb-6 leading-[1.1] px-2"
           >
             {t('hero.title1')}{' '}
             <span className="text-gradient">{t('hero.title2')}</span>{' '}
@@ -60,7 +60,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
+            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 px-4"
           >
             {t('hero.subtitle')}
           </motion.p>

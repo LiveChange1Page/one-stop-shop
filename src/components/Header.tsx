@@ -33,9 +33,9 @@ export function Header() {
           : 'bg-transparent py-5'
       )}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className="container mx-auto px-3 sm:px-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2">
-          <span className="font-serif text-2xl font-bold text-foreground">
+          <span className="font-serif text-lg sm:text-2xl font-bold text-foreground truncate max-w-[180px] sm:max-w-none">
             One Page - Life Change
           </span>
         </a>

@@ -7,8 +7,8 @@ export function Footer() {
 
   return (
     <footer id="contact" className="bg-card border-t border-border">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="container mx-auto px-4 py-10 sm:py-16">
+        <div className="grid grid-cols-2 gap-6 sm:gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -135,8 +135,8 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-border mt-12 pt-8 text-center">
-          <p className="text-sm text-muted-foreground">
+        <div className="border-t border-border mt-8 sm:mt-12 pt-6 sm:pt-8 text-center">
+          <p className="text-xs sm:text-sm text-muted-foreground">
             © {new Date().getFullYear()} Boutique. {t('footer.rights')}
           </p>
         </div>
