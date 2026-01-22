@@ -36,7 +36,7 @@ export function Header() {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2">
           <span className="font-serif text-2xl font-bold text-foreground">
-            Boutique
+            One Page - Life Change
           </span>
         </a>
 

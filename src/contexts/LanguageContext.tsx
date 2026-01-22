@@ -18,9 +18,9 @@ export const translations: Translations = {
   
   // Hero
   'hero.badge': { en: 'Exclusive Collection', de: 'Exklusive Kollektion', fr: 'Collection Exclusive' },
-  'hero.title1': { en: 'Our Best', de: 'Unsere besten', fr: 'Nos meilleurs' },
-  'hero.title2': { en: 'Products', de: 'Produkte', fr: 'Produits' },
-  'hero.title3': { en: 'in One Place', de: 'an einem Ort', fr: 'au même endroit' },
+  'hero.title1': { en: 'Your', de: 'Dein', fr: 'Ta' },
+  'hero.title2': { en: 'New Life', de: 'Neues Leben', fr: 'Nouvelle Vie' },
+  'hero.title3': { en: 'in one Table', de: 'in einer Tabelle', fr: 'dans un seul Tableau' },
   'hero.subtitle': { en: 'Discover a carefully curated collection of premium products, crafted for those who value quality and uniqueness', de: 'Entdecken Sie eine sorgfältig kuratierte Kollektion von Premium-Produkten, geschaffen für diejenigen, die Qualität und Einzigartigkeit schätzen', fr: 'Découvrez une collection soigneusement sélectionnée de produits premium, conçue pour ceux qui apprécient la qualité et l\'unicité' },
   'hero.viewProducts': { en: 'View Products', de: 'Produkte ansehen', fr: 'Voir les produits' },
   'hero.learnMore': { en: 'Learn More', de: 'Mehr erfahren', fr: 'En savoir plus' },
@@ -86,22 +86,22 @@ export const translations: Translations = {
 // Product translations
 export const productTranslations = {
   course: {
-    name: { en: 'Online Course', de: 'Online-Kurs', fr: 'Cours en ligne' },
+    name: { en: 'Table 1', de: 'Tabelle 1', fr: 'Tableau 1' },
     description: { en: 'Complete course with video lessons and practical exercises', de: 'Kompletter Kurs mit Videolektionen und praktischen Übungen', fr: 'Cours complet avec des leçons vidéo et des exercices pratiques' },
     fullDescription: { en: 'Comprehensive online course featuring 50+ video lessons, practical exercises, downloadable resources, and lifetime access. Perfect for beginners and intermediate learners looking to master new skills.', de: 'Umfassender Online-Kurs mit über 50 Videolektionen, praktischen Übungen, herunterladbaren Ressourcen und lebenslangem Zugang. Perfekt für Anfänger und Fortgeschrittene, die neue Fähigkeiten erlernen möchten.', fr: 'Cours en ligne complet comprenant plus de 50 leçons vidéo, des exercices pratiques, des ressources téléchargeables et un accès à vie. Parfait pour les débutants et les apprenants intermédiaires souhaitant maîtriser de nouvelles compétences.' },
   },
   ebooks: {
-    name: { en: 'E-Book Collection', de: 'E-Book-Sammlung', fr: 'Collection d\'E-Books' },
+    name: { en: 'Table 2', de: 'Tabelle 2', fr: 'Tableau 2' },
     description: { en: 'Collection of exclusive e-books in PDF format', de: 'Sammlung exklusiver E-Books im PDF-Format', fr: 'Collection d\'e-books exclusifs au format PDF' },
     fullDescription: { en: 'A curated collection of 10 premium e-books covering essential topics. Each book is professionally designed, easy to read, and packed with actionable insights you can implement immediately.', de: 'Eine kuratierte Sammlung von 10 Premium-E-Books zu wesentlichen Themen. Jedes Buch ist professionell gestaltet, leicht zu lesen und voller umsetzbarer Erkenntnisse, die Sie sofort anwenden können.', fr: 'Une collection soigneusement sélectionnée de 10 e-books premium couvrant des sujets essentiels. Chaque livre est conçu professionnellement, facile à lire et rempli d\'idées exploitables que vous pouvez mettre en œuvre immédiatement.' },
   },
   templates: {
-    name: { en: 'Template Pack', de: 'Vorlagenpaket', fr: 'Pack de Modèles' },
+    name: { en: 'Table 3', de: 'Tabelle 3', fr: 'Tableau 3' },
     description: { en: 'Ready-to-use templates for various projects', de: 'Gebrauchsfertige Vorlagen für verschiedene Projekte', fr: 'Modèles prêts à l\'emploi pour divers projets' },
     fullDescription: { en: '50+ professionally designed templates including presentations, documents, spreadsheets, and more. Save hours of work with these customizable, high-quality templates for any business need.', de: 'Über 50 professionell gestaltete Vorlagen einschließlich Präsentationen, Dokumente, Tabellenkalkulationen und mehr. Sparen Sie Stunden an Arbeit mit diesen anpassbaren, hochwertigen Vorlagen für jeden Geschäftsbedarf.', fr: 'Plus de 50 modèles conçus professionnellement, y compris des présentations, des documents, des feuilles de calcul et plus encore. Économisez des heures de travail avec ces modèles personnalisables et de haute qualité pour tout besoin commercial.' },
   },
   consultation: {
-    name: { en: 'Personal Consultation', de: 'Persönliche Beratung', fr: 'Consultation Personnelle' },
+    name: { en: 'Personal Table', de: 'Persönliche Tabelle', fr: 'Personnelle Tableau' },
     description: { en: 'One-on-one session with an expert', de: 'Einzelsitzung mit einem Experten', fr: 'Session individuelle avec un expert' },
     fullDescription: { en: '60-minute personalized consultation session with our expert. Get tailored advice, answers to your questions, and a custom action plan to help you achieve your specific goals.', de: '60-minütige personalisierte Beratungssitzung mit unserem Experten. Erhalten Sie maßgeschneiderte Ratschläge, Antworten auf Ihre Fragen und einen individuellen Aktionsplan, um Ihre spezifischen Ziele zu erreichen.', fr: 'Session de consultation personnalisée de 60 minutes avec notre expert. Obtenez des conseils sur mesure, des réponses à vos questions et un plan d\'action personnalisé pour vous aider à atteindre vos objectifs spécifiques.' },
   },
